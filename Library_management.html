@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Library Management System</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+<h1>Library Management System</h1>
+</header>
+<main>
+<section id="book-list">
+<h2>Available Books</h2>
+<!-- Book items will be added here -->
+</section>
+<section id="book-form">
+<h2>Add a Book</h2>
+<form>
+<input type="text" id="title" placeholder="Title" required>
+<input type="text" id="author" placeholder="Author" required>
+<button type="submit">Add Book</button>
+</form>
+</section>
+
+</main>
+<script >
+    document.getElementById('book-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    var title = document.getElementById('title').value;
+    var author = document.getElementById('author').value;
+    
+    var bookList = document.getElementById('book-list');
+    var bookItem = document.createElement('div');
+    bookItem.innerHTML = '<strong>' + title + '</strong> by ' + author;
+    bookList.appendChild(bookItem);
+    
+    // Clear the form
+    document.getElementById('title').value = '';
+    document.getElementById('author').value = '';
+    });
+    
+</script>
+</body>
+</html>
